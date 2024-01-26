@@ -58,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
 
         xSpeed = horizontal * acceleration;
 
-        Debug.Log(xSpeed);
-
 
         if (!grounded)
         {
