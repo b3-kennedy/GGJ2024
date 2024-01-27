@@ -14,7 +14,7 @@ public class Hitbox : MonoBehaviour
         if (other.CompareTag(tagToCompare))
         {
             Vector2 dir = (other.transform.GetComponent<Health>().hitDirectionBase.position - player.transform.position).normalized;
-            other.GetComponent<Health>().TakeDamage(damage, dir);
+            other.GetComponent<Health>().TakeDamage(damage, dir, player.gameObject);
         }
     }
 

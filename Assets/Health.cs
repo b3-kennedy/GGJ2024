@@ -15,11 +15,23 @@ public class Health : MonoBehaviour
 
 
 
-    public void TakeDamage(float dmg, Vector2 dir)
+    public void TakeDamage(float dmg, Vector2 dir, GameObject otherPlayer)
     {
-        health += dmg;
-        GetComponent<PlayerMovement>().hitStun = true;
-        rb.AddForce(dir * health, ForceMode2D.Impulse);
+        if(GetComponent<Block>().isBlocking && GetComponent<Block>().parryTimer <= GetComponent<Block>().parryWindow)
+        {
+
+            Vector2 direction = (otherPlayer.GetComponent<Health>().hitDirectionBase.position - transform.position).normalized;
+            Debug.Log(direction);
+            otherPlayer.GetComponent<Health>().TakeDamage(dmg, direction, gameObject);
+        }
+
+        if (!GetComponent<Block>().isBlocking)
+        {
+            health += dmg;
+            GetComponent<PlayerMovement>().hitStun = true;
+            rb.AddForce(dir * health, ForceMode2D.Impulse);
+        }
+
         
     }
 
