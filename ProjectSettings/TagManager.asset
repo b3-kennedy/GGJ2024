@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - Player1Hoop
   - Player2Hoop
+  - Platform
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -44,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1889917275
     locked: 0

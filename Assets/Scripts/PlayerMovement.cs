@@ -90,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 //rb.sharedMaterial.bounciness /= 2;
                 rb.velocity /= 2;
-                Debug.Log(rb.velocity);
 
             }
         }
@@ -119,11 +118,11 @@ public class PlayerMovement : MonoBehaviour
             acceleration = 0;
         }
 
-        if(horizontal > 0)
+        if (horizontal > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if(horizontal < 0)
+        else if (horizontal < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
