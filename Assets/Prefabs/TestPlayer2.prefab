@@ -324,7 +324,7 @@ MonoBehaviour:
   airDrag: 5
   jumpForce: 12
   groundCheck: {fileID: 2876202590873912320}
-  grounded: 0
+  grounded: 1
   mask:
     serializedVersion: 2
     m_Bits: 64
@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 7323803718266404800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalPosition: {x: 0, y: -1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

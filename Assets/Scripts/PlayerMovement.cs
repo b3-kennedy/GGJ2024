@@ -165,9 +165,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(groundCheck.position, -Vector2.up * 0.2f);
+    }
+
     void GroundCheck()
     {
         RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f, mask);
+
+
 
         if (hit.collider)
         {
