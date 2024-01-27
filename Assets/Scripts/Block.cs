@@ -63,6 +63,10 @@ public class Block : MonoBehaviour
 
             if (!isBlocking)
             {
+                if(blockTimer > 0)
+                {
+                    blockTimer -= Time.deltaTime;
+                }
                 blockText.SetActive(false);
                 if(spawnedBlockObj != null)
                 {
