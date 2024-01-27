@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject blockTimer1;
     public GameObject blockTimer2;
 
-    public GameObject player1;
-    public GameObject player2;
+    [HideInInspector] public GameObject player1;
+    [HideInInspector] public GameObject player2;
 
     public Vector2 player1StartPos;
     public Vector2 player2StartPos;
