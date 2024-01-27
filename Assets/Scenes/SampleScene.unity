@@ -1898,7 +1898,7 @@ MonoBehaviour:
   blockKey: 111
   blockObj: {fileID: 8621934121342176238, guid: f94c568499151764faed09b2ba60ca47, type: 3}
   maxBlockTime: 3
-  parryWindow: 0.5
+  parryWindow: 0.25
   blockTimer: 0
   parryTimer: 0
   blockCooldown: 3
@@ -3150,7 +3150,7 @@ MonoBehaviour:
   blockKey: 113
   blockObj: {fileID: 8621934121342176238, guid: f94c568499151764faed09b2ba60ca47, type: 3}
   maxBlockTime: 3
-  parryWindow: 0.5
+  parryWindow: 0.25
   blockTimer: 0
   parryTimer: 0
   blockCooldown: 3
