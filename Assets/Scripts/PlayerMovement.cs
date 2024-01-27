@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float normalSpeed;
     float horizontal;
     bool airborn;
+    public LayerMask mask;
 
     float acceleration;
 
@@ -166,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f, mask);
 
         if (hit.collider)
         {

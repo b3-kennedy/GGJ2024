@@ -8,6 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     private Animator animator;
     private string currentAnimState;
     private Rigidbody2D rb;
+    private PlayerMovement pMove;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = transform.parent.gameObject.GetComponent<Rigidbody2D>();
+        pMove = transform.parent.GetComponent<PlayerMovement>();
 
     }
 
@@ -26,15 +28,37 @@ public class PlayerAnimation : MonoBehaviour
         //if (Input.GetAxis("Horizontal") > 0) sprite.flipX = false;
         //else if (Input.GetAxis("Horizontal") < 0) sprite.flipX = true;
 
-        if (rb.velocity.x > 0.2f || rb.velocity.x < -0.2f)
+        if (!pMove.grounded)
         {
-            
-            ChangeAnimationState("Run");
+            //Air
+            if (rb.velocity.y > 0.1f)
+            {
+                ChangeAnimationState("Rise");
+            }
+            else if (rb.velocity.y < 0.1f)
+            {
+                ChangeAnimationState("Peak");
+            }
+            else
+            {
+                ChangeAnimationState("Fall");
+            }
         }
         else
         {
-            ChangeAnimationState("Idle");
+            if (rb.velocity.x > 0.2f || rb.velocity.x < -0.2f)
+            {
+
+                ChangeAnimationState("Run");
+            }
+            else
+            {
+                ChangeAnimationState("Idle");
+            }
         }
+
+
+
     }
 
     void ChangeAnimationState(string newState)

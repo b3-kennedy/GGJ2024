@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 2008506322604113567}
   - component: {fileID: 8082840166478445677}
   - component: {fileID: 2584942033231470062}
+  - component: {fileID: 5161266917001345827}
   - component: {fileID: 8330818781312215035}
   m_Layer: 3
   m_Name: TestPlayer2
@@ -324,6 +325,9 @@ MonoBehaviour:
   jumpForce: 12
   groundCheck: {fileID: 2876202590873912320}
   grounded: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
   axisName: Player2Horizontal
   jumpKey: 105
   hitStun: 0
@@ -335,7 +339,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4157534436910462439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3c9b51b4e3d944384fc4d9eb6e515e, type: 3}
   m_Name: 
@@ -395,6 +399,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onPlatform: 0
   fallKey: 107
+--- !u!114 &5161266917001345827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157534436910462439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8279f4ee457b68f4a90f0d1110a54798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8813587941555234598, guid: b60d486b92b55a04aae6854873a0b428, type: 3}
+  projectileSpawn: {fileID: 7522628351162268620}
+  fireRate: 0.5
+  projectileForce: 50
+  damage: 10
+  attackKey: 117
 --- !u!70 &8330818781312215035
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

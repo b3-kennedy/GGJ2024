@@ -551,6 +551,9 @@ MonoBehaviour:
   jumpForce: 12
   groundCheck: {fileID: 1733577491253005055}
   grounded: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
   axisName: Horizontal
   jumpKey: 119
   hitStun: 0
