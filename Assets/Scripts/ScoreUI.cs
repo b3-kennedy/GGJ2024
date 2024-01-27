@@ -22,12 +22,22 @@ public class ScoreUI : MonoBehaviour
     {
         player1Score++;
         player1ScoreText.text = player1Score.ToString();
+
+        GameManager.Instance.player1.GetComponent<Health>().health = 0;
+        GameManager.Instance.player2.GetComponent<Health>().health = 0;
+        GameManager.Instance.player1.transform.position = GameManager.Instance.player1StartPos;
+        GameManager.Instance.player2.transform.position = GameManager.Instance.player2StartPos;
     }
 
     public void IncrementPlayer2Score()
     {
         player2Score++;
         player2ScoreText.text = player2Score.ToString();
+
+        GameManager.Instance.player1.GetComponent<Health>().health = 0;
+        GameManager.Instance.player2.GetComponent<Health>().health = 0;
+        GameManager.Instance.player1.transform.position = GameManager.Instance.player1StartPos;
+        GameManager.Instance.player2.transform.position = GameManager.Instance.player2StartPos;
     }
 
 }
