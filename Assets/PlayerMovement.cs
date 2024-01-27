@@ -25,11 +25,16 @@ public class PlayerMovement : MonoBehaviour
 
     float xSpeed;
 
+    public bool hitStun;
+
+    public PhysicsMaterial2D bounceMat;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         normalSpeed = speed;
+        //bounceMat.bounciness = 0;
 
     }
 
@@ -40,25 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void CheckIfLanded()
     {
-        horizontal = Input.GetAxis(axisName);
-
-        if (horizontal != 0)
-        {
-            acceleration += baseAcceleration + (speed * Time.deltaTime);
-        }
-        else
-        {
-            acceleration = 0;
-        }
-
-        acceleration = Mathf.Clamp(acceleration, 0, 10);
-
-        xSpeed = horizontal * acceleration;
-
-
         if (!grounded)
         {
             if (!airborn)
@@ -74,6 +62,75 @@ public class PlayerMovement : MonoBehaviour
                 airborn = false;
             }
         }
+    }
+
+    void CancelHitstun()
+    {
+        if (hitStun)
+        {
+            rb.sharedMaterial = bounceMat;
+            //bounceMat.bounciness = GetComponent<Health>().health / 100;
+
+
+            if (rb.velocity.magnitude < 5f)
+            {
+                rb.sharedMaterial = null;
+                hitStun = false;
+            }
+        }
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider)
+        {
+            if (hitStun)
+            {
+                //rb.sharedMaterial.bounciness /= 2;
+                rb.velocity /= 2;
+                Debug.Log(rb.velocity);
+
+            }
+        }
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        CancelHitstun();
+
+        if (!hitStun)
+        {
+            horizontal = Input.GetAxis(axisName);
+        }
+        
+
+        if (horizontal != 0)
+        {
+            acceleration += baseAcceleration + (speed * Time.deltaTime);
+        }
+        else
+        {
+            acceleration = 0;
+        }
+
+        if(horizontal > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if(horizontal < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        acceleration = Mathf.Clamp(acceleration, 0, 10);
+
+        xSpeed = horizontal * acceleration;
 
 
         if (!grounded)
@@ -86,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             acceleration = normalSpeed;
         }
 
-
+        CheckIfLanded();
 
         moveVec = new Vector2(xSpeed, rb.velocity.y);
 
@@ -101,12 +158,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVec;
+        if (!hitStun)
+        {
+            rb.velocity = moveVec;
+        }
+        
     }
 
     void GroundCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -transform.up, 0.2f);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f);
 
         if (hit.collider)
         {
