@@ -7,10 +7,7 @@ public class Health : MonoBehaviour
     public float health;
     Rigidbody2D rb;
     public Transform hitDirectionBase;
-<<<<<<< HEAD
-=======
     [SerializeField] private ParticleSystem _particle;
->>>>>>> parent of 5917123 (screensshake)
 
     private void Start()
     {
@@ -35,11 +32,9 @@ public class Health : MonoBehaviour
         if (!GetComponent<Block>().isBlocking)
         {
             AudioSource.PlayClipAtPoint(AudioManager.Instance.takeDamage, Camera.main.transform.position);
-<<<<<<< HEAD
 
-=======
             _particle.Play();
->>>>>>> parent of 5917123 (screensshake)
+
             health += dmg;
             GetComponent<PlayerMovement>().hitStun = true;
             rb.AddForce(dir * health, ForceMode2D.Impulse);
