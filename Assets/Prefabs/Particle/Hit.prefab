@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 131792733253087990}
   - component: {fileID: 5534155357594000416}
   m_Layer: 0
-  m_Name: yellowhit
+  m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 5089919210695563559}
   serializedVersion: 8
   lengthInSec: 0.2
-  simulationSpeed: 1.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.90056366, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.032075405, b: 0.032075405, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -980,7 +980,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 8
+        scalar: 25
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1358,7 +1358,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1366,34 +1366,34 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.8570256, b: 0, a: 1}
-        key1: {r: 0.94509804, g: 0.63898325, b: 0, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 1}
-        key3: {r: 0, g: 0, b: 0, a: 1}
-        key4: {r: 0, g: 0, b: 0, a: 1}
-        key5: {r: 0, g: 0, b: 0, a: 1}
-        key6: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 0}
+        key3: {r: 0, g: 0, b: 0, a: 0}
+        key4: {r: 0, g: 0, b: 0, a: 0}
+        key5: {r: 0, g: 0, b: 0, a: 0}
+        key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 1157
-        ctime1: 52043
-        ctime2: 65535
-        ctime3: 65535
+        ctime0: 0
+        ctime1: 65535
+        ctime2: 0
+        ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 3084
-        atime1: 16962
-        atime2: 26021
-        atime3: 34695
-        atime4: 44333
-        atime5: 54741
-        atime6: 65535
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
-        m_NumColorKeys: 3
-        m_NumAlphaKeys: 7
+        m_ColorSpace: -1
+        m_NumColorKeys: 2
+        m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8eb91f923e925d04d9e182a7a793bdbf, type: 2}
+  - {fileID: 2100000, guid: 02dc8841f9eb04647a02c00d01bf2fd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4853,8 +4853,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1468860129
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
