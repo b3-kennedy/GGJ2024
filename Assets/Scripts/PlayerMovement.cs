@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float normalSpeed;
     float horizontal;
     bool airborn;
+    public LayerMask mask;
 
     float acceleration;
 
@@ -90,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 //rb.sharedMaterial.bounciness /= 2;
                 rb.velocity /= 2;
-                Debug.Log(rb.velocity);
 
             }
         }
@@ -101,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(jumpKey) && grounded)
+        {
+            Jump();
+        }
 
         CancelHitstun();
 
@@ -119,11 +124,11 @@ public class PlayerMovement : MonoBehaviour
             acceleration = 0;
         }
 
-        if(horizontal > 0)
+        if (horizontal > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if(horizontal < 0)
+        else if (horizontal < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
@@ -150,10 +155,7 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         //AirDrag();
 
-        if (Input.GetKeyDown(jumpKey) && grounded)
-        {
-            Jump();
-        }
+
     }
 
     private void FixedUpdate()
@@ -165,9 +167,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(groundCheck.position, -Vector2.up * 0.2f);
+    }
+
     void GroundCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -Vector2.up, 0.2f, mask);
+
+
 
         if (hit.collider)
         {

@@ -21,7 +21,6 @@ public class Health : MonoBehaviour
         {
 
             Vector2 direction = (otherPlayer.GetComponent<Health>().hitDirectionBase.position - transform.position).normalized;
-            Debug.Log(direction);
             otherPlayer.GetComponent<Health>().TakeDamage(dmg, direction, gameObject);
         }
 
