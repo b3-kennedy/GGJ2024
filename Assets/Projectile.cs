@@ -6,12 +6,13 @@ public class Projectile : MonoBehaviour
 {
     public float damage;
     [HideInInspector] public GameObject shootingPlayer;
+    public Transform hitDirectionBase;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerMovement>())
         {
-            Vector2 dir = (other.transform.GetComponent<Health>().hitDirectionBase.position - shootingPlayer.transform.position).normalized;
+            Vector2 dir = -(hitDirectionBase.position - transform.position).normalized;
             other.gameObject.GetComponent<Health>().TakeDamage(damage, dir, shootingPlayer.gameObject);
         }
         Destroy(gameObject);
