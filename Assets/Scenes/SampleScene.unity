@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToWin: 3
-  player1Prefab: {fileID: 6239157193653349063, guid: 2ec22b51ddd934b45ae582e9f9d03d40, type: 3}
+  player1Prefab: {fileID: 3545365902861535953, guid: db0930f52a4363749846102742b476a9, type: 3}
   player2Prefab: {fileID: 4157534436910462439, guid: 2a79e66a8fe67b544aa331936e1f99b5, type: 3}
   blockTimer1: {fileID: 7907388}
   blockTimer2: {fileID: 358055185}
