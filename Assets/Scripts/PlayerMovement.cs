@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hitStun)
             {
+                GetComponent<CharacterAudio>().PlayBonce();
                 //rb.sharedMaterial.bounciness /= 2;
                 rb.velocity /= 2;
 
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey) && grounded)
         {
+            GetComponent<CharacterAudio>().PlayJump();
             Jump();
         }
 

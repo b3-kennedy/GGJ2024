@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
 
     public int scoreToWin;
 
+    public GameObject redPrefab;
+    public GameObject bluePrefab;
+    public GameObject yellowPrefab;
+
+
     public GameObject player1Prefab;
     public GameObject player2Prefab;
     public GameObject blockTimer1;
@@ -36,14 +41,65 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void PickRed(int num)
+    {
+        if(num == 1)
+        {
+            player1Prefab = redPrefab;
+        }
+        else if(num == 2)
+        {
+            player2Prefab = redPrefab;
+        }
+    }
+
+    public void PickBlue(int num)
+    {
+        if (num == 1)
+        {
+            player1Prefab = bluePrefab;
+        }
+        else if (num == 2)
+        {
+            player2Prefab = bluePrefab;
+        }
+    }
+
+    public void PickYellow(int num)
+    {
+        if (num == 1)
+        {
+            player1Prefab = yellowPrefab;
+        }
+        else if (num == 2)
+        {
+            player2Prefab = yellowPrefab;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         
-        player1 = Instantiate(player1Prefab, new Vector3(player1StartPos.x, player1StartPos.y,0), Quaternion.identity);
-        player2 = Instantiate(player2Prefab, new Vector3(player2StartPos.x,player2StartPos.y,0), Quaternion.identity);
+
+
+        //GetRandomPowerUpTime();
+    }
+
+    public void OnStartGame()
+    {
+        player1 = Instantiate(player1Prefab, new Vector3(player1StartPos.x, player1StartPos.y, 0), Quaternion.identity);
+        player2 = Instantiate(player2Prefab, new Vector3(player2StartPos.x, player2StartPos.y, 0), Quaternion.identity);
+
+        blockTimer1 = GameObject.Find("BlockTimerPlayer1");
+        blockTimer2 = GameObject.Find("BlockTimerPlayer2");
+
+        Debug.Log(blockTimer1);
+        Debug.Log(blockTimer2);
+
         blockTimer1.GetComponent<FollowPlayer>().objectToFollow = player1.transform.GetChild(3);
         blockTimer2.GetComponent<FollowPlayer>().objectToFollow = player2.transform.GetChild(3);
         player1.GetComponent<Block>().blockText = blockTimer1;
@@ -75,12 +131,8 @@ public class GameManager : MonoBehaviour
             player1.GetComponent<SpawnAttack>().otherPlayer = "Player2";
             player1.GetComponent<SpawnAttack>().player = player1;
         }
-
-        //GetRandomPowerUpTime();
     }
-    
-    
-    
+
 
     //void GetRandomPowerUpTime()
     //{
@@ -102,15 +154,19 @@ public class GameManager : MonoBehaviour
         //    timer = 0;
         //}
 
-
-        if(ScoreUI.Instance.player1Score == scoreToWin)
+        if (ScoreUI.Instance)
         {
-            Debug.Log("Player 1 Wins");
+            if (ScoreUI.Instance.player1Score == scoreToWin)
+            {
+                Debug.Log("Player 1 Wins");
+            }
+
+            if (ScoreUI.Instance.player2Score == scoreToWin)
+            {
+                Debug.Log("Player 2 Wins");
+            }
         }
 
-        if(ScoreUI.Instance.player2Score == scoreToWin)
-        {
-            Debug.Log("Player 2 Wins");
-        }
+
     }
 }

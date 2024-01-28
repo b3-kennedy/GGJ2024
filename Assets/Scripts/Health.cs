@@ -19,13 +19,15 @@ public class Health : MonoBehaviour
     {
         if(GetComponent<Block>().isBlocking && GetComponent<Block>().parryTimer <= GetComponent<Block>().parryWindow)
         {
-
+            GetComponent<CharacterAudio>().PlayParry();
             Vector2 direction = (otherPlayer.GetComponent<Health>().hitDirectionBase.position - transform.position).normalized;
             otherPlayer.GetComponent<Health>().TakeDamage(dmg, direction, gameObject);
         }
 
         if (!GetComponent<Block>().isBlocking)
         {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.takeDamage, Camera.main.transform.position);
+
             health += dmg;
             GetComponent<PlayerMovement>().hitStun = true;
             rb.AddForce(dir * health, ForceMode2D.Impulse);
