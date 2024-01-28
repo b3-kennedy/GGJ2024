@@ -443,6 +443,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   hitDirectionBase: {fileID: 679340068552587012}
+<<<<<<< HEAD
+=======
+  _particle: {fileID: 3514379577898245279}
+>>>>>>> parent of 5917123 (screensshake)
 --- !u!114 &1634748681160167497
 MonoBehaviour:
   m_ObjectHideFlags: 0
