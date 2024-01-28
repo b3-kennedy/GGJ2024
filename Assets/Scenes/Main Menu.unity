@@ -2582,7 +2582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14814ac0b634d74e92764d56abfce49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToWin: 1
+  scoreToWin: 3
   redPrefab: {fileID: 3545365902861535953, guid: db0930f52a4363749846102742b476a9, type: 3}
   bluePrefab: {fileID: 4157534436910462439, guid: 2a79e66a8fe67b544aa331936e1f99b5, type: 3}
   yellowPrefab: {fileID: 6239157193653349063, guid: 2ec22b51ddd934b45ae582e9f9d03d40, type: 3}
