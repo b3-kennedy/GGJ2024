@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -117,6 +119,10 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<SpawnAttack>().otherPlayer = "Player1";
             player2.GetComponent<SpawnAttack>().player = player2;
         }
+        if (player2.GetComponent<ProjectileAttack>())
+        {
+            player2.GetComponent<ProjectileAttack>().attackKey = KeyCode.U;
+        }
 
 
         player1.GetComponent<PlayerMovement>().jumpKey = KeyCode.W;
@@ -130,6 +136,10 @@ public class GameManager : MonoBehaviour
         {
             player1.GetComponent<SpawnAttack>().otherPlayer = "Player2";
             player1.GetComponent<SpawnAttack>().player = player1;
+        }
+        if (player1.GetComponent<ProjectileAttack>())
+        {
+            player1.GetComponent<ProjectileAttack>().attackKey = KeyCode.E;
         }
     }
 
@@ -158,15 +168,52 @@ public class GameManager : MonoBehaviour
         {
             if (ScoreUI.Instance.player1Score == scoreToWin)
             {
+                if(player1.GetComponent<PlayerMovement>().colour == "Red")
+                {
+                    ScoreUI.Instance.redWin.SetActive(true);
+                }
+                else if(player1.GetComponent<PlayerMovement>().colour == "Blue")
+                {
+                    ScoreUI.Instance.blueWin.SetActive(true);
+                }
+                else if(player1.GetComponent<PlayerMovement>().colour == "Yellow")
+                {
+                    ScoreUI.Instance.yellowWin.SetActive(true);
+                }
                 Debug.Log("Player 1 Wins");
+                StartCoroutine(Restart());
             }
 
             if (ScoreUI.Instance.player2Score == scoreToWin)
             {
+                if (player2.GetComponent<PlayerMovement>().colour == "Red")
+                {
+                    ScoreUI.Instance.redWin.SetActive(true);
+                }
+                else if (player2.GetComponent<PlayerMovement>().colour == "Blue")
+                {
+                    ScoreUI.Instance.blueWin.SetActive(true);
+                }
+                else if (player2.GetComponent<PlayerMovement>().colour == "Yellow")
+                {
+                    ScoreUI.Instance.yellowWin.SetActive(true);
+                }
                 Debug.Log("Player 2 Wins");
+                StartCoroutine(Restart());
             }
+
+
         }
 
 
     }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(0);
+        Destroy(gameObject);
+        
+    }
+
 }

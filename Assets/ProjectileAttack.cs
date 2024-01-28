@@ -30,7 +30,7 @@ public class ProjectileAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(attackKey))
             {
-                GameObject proj = Instantiate(projectile, projectileSpawn.position, Quaternion.Euler(0,transform.eulerAngles.y,0));
+                GameObject proj = Instantiate(projectile, projectileSpawn.position, Quaternion.Euler(0,0, transform.eulerAngles.y));
                 proj.GetComponent<Projectile>().damage = damage;
                 proj.GetComponent<Projectile>().shootingPlayer = gameObject;
                 proj.GetComponent<Rigidbody2D>().AddForce(transform.right * projectileForce, ForceMode2D.Impulse);

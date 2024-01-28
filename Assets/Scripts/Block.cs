@@ -40,6 +40,7 @@ public class Block : MonoBehaviour
             {
                 if(spawnedBlockObj == null)
                 {
+                    GetComponent<CharacterAudio>().PlayShield();
                     spawnedBlockObj = Instantiate(blockObj, transform);
                 }
                 
@@ -57,6 +58,7 @@ public class Block : MonoBehaviour
 
             if (Input.GetKeyUp(blockKey))
             {
+                GetComponent<CharacterAudio>().StopShield();
                 isBlocking = false;
                 parryTimer = 0;
             }
