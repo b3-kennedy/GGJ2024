@@ -2294,7 +2294,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.11502457, g: 0, b: 1, a: 1}
+      maxColor: {r: 0.3622198, g: 0.30943394, b: 0.7735849, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -8036,6 +8036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14814ac0b634d74e92764d56abfce49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToWin: 0
   player1Prefab: {fileID: 3545365902861535953, guid: db0930f52a4363749846102742b476a9, type: 3}
   player2Prefab: {fileID: 4157534436910462439, guid: 2a79e66a8fe67b544aa331936e1f99b5, type: 3}
   blockTimer1: {fileID: 7907388}
@@ -8044,6 +8045,13 @@ MonoBehaviour:
   player2: {fileID: 0}
   player1StartPos: {x: -12.5, y: -1.87}
   player2StartPos: {x: 11.53, y: -2.09}
+  topLeft: {x: 0, y: 0}
+  topRight: {x: 0, y: 0}
+  bottomLeft: {x: 0, y: 0}
+  bottomRight: {x: 0, y: 0}
+  powerUpOrbs: []
+  minSpawnTime: 0
+  maxSpawnTime: 0
 --- !u!4 &1933948652
 Transform:
   m_ObjectHideFlags: 0
