@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Hoop : MonoBehaviour
 {
@@ -8,14 +9,17 @@ public class Hoop : MonoBehaviour
     public enum Side {RIGHT, LEFT};
     public Side side;
     public float timer;
+    public float shakeForce;
     private float timeLeft;
     private bool finishCount = false;
     private bool player1 = false;
     private bool player2 = false;
     [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private CinemachineImpulseSource _impulseSource;
     private void Start()
     {
         timeLeft = timer;
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
         finishCount = false;
         player1 = false;
         player2 = false;
@@ -36,8 +40,8 @@ public class Hoop : MonoBehaviour
             }
             else if(player2 == true)
             {
-              ScoreUI.Instance.IncrementPlayer1Score();
-             player2 = false;           
+                ScoreUI.Instance.IncrementPlayer1Score();
+                player2 = false;           
             } 
 
             finishCount = false;
@@ -53,6 +57,7 @@ public class Hoop : MonoBehaviour
         if (side == Side.LEFT)
         {
             _particle.Play();
+            CamShakeManager.instance.cameraShake(_impulseSource,shakeForce);
                 if (other.CompareTag("Player1"))
                 {
                    
@@ -64,7 +69,8 @@ public class Hoop : MonoBehaviour
         else if (side == Side.RIGHT)
         {
             _particle.Play();
-                if (other.CompareTag("Player2"))
+            CamShakeManager.instance.cameraShake(_impulseSource,shakeForce);
+            if (other.CompareTag("Player2"))
                 {
                     
                     player2 = true;

@@ -5,9 +5,9 @@ using Cinemachine;
 
 public class CamShakeManager : MonoBehaviour
 {
-    static CamShakeManager instance;
+   public static CamShakeManager instance;
 
-    [SerializeField] private float globlaShakeForce = 1f;
+   // public float globlaShakeForce = 1f;
 
     private void Awake()
     {
@@ -17,8 +17,8 @@ public class CamShakeManager : MonoBehaviour
         }
     }
 
-    public void cameraShake(CinemachineImpulseSource impulseSource)
+    public void cameraShake(CinemachineImpulseSource impulseSource,float shakeForce)
     {
-        impulseSource.GenerateImpulseWithForce(globlaShakeForce);
+        impulseSource.GenerateImpulseWithForce(shakeForce);
     }
 }
