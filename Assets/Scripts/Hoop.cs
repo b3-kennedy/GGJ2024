@@ -7,22 +7,70 @@ public class Hoop : MonoBehaviour
 
     public enum Side {RIGHT, LEFT};
     public Side side;
+    public float timer;
+    private float timeLeft;
+    private bool finishCount = false;
+    private bool player1 = false;
+    private bool player2 = false;
+    [SerializeField] private ParticleSystem _particle;
+    private void Start()
+    {
+        timeLeft = timer;
+        finishCount = false;
+        player1 = false;
+        player2 = false;
+    }
+    private void Update()
+    {
+        if (finishCount == true) {
+        
+            timeLeft -= Time.deltaTime;
+        
+        }
+        if (timeLeft < 0)
+        { 
+            if(player1 == true)
+            {
+                ScoreUI.Instance.IncrementPlayer2Score();
+                player1 = false;
+            }
+            else if(player2 == true)
+            {
+              ScoreUI.Instance.IncrementPlayer1Score();
+             player2 = false;           
+            } 
+
+            finishCount = false;
+            timeLeft = timer;
+        }
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(side == Side.LEFT)
+        finishCount = true;
+        if (side == Side.LEFT)
         {
-            if (other.CompareTag("Player1"))
-            {
-                ScoreUI.Instance.IncrementPlayer2Score();
-            }
+            _particle.Play();
+                if (other.CompareTag("Player1"))
+                {
+                   
+                    player1 = true;
+                }
+                
+            
         }
-        else if(side == Side.RIGHT)
+        else if (side == Side.RIGHT)
         {
-            if (other.CompareTag("Player2"))
-            {
-                ScoreUI.Instance.IncrementPlayer1Score();
-            }
+            _particle.Play();
+                if (other.CompareTag("Player2"))
+                {
+                    
+                    player2 = true;
+                }
+               
+            
         }
 
     }
