@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
             Vector2 dir = -(hitDirectionBase.position - transform.position).normalized;
             other.gameObject.GetComponent<Health>().TakeDamage(damage, dir, shootingPlayer.gameObject);
         }
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.projectileHit, Camera.main.transform.position);
         Destroy(gameObject);
     }
 

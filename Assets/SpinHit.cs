@@ -17,6 +17,7 @@ public class SpinHit : MonoBehaviour
     {
         if (other.CompareTag(otherPlayerTag))
         {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.yellowAttackHit, Camera.main.transform.position);
             Vector2 dir = (other.transform.GetComponent<Health>().hitDirectionBase.position - player.transform.position).normalized;
             other.GetComponent<Health>().TakeDamage(damage, dir, player.gameObject);
             startTimer = true;

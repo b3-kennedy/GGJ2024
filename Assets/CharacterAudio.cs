@@ -9,7 +9,8 @@ public class CharacterAudio : MonoBehaviour
     public AudioClip jump;
     public AudioClip parry;
     public AudioClip shield;
-
+    public AudioClip punchHit;
+    public AudioClip punchMiss;
     public AudioSource source;
 
     public void PlayBonce()
@@ -35,5 +36,23 @@ public class CharacterAudio : MonoBehaviour
     public void StopShield()
     {
         source.Stop();
+    }
+
+    public void PunchHit()
+    {
+        if(punchHit != null)
+        {
+            AudioSource.PlayClipAtPoint(punchHit, Camera.main.transform.position);
+        }
+        
+    }
+
+    public void PunchMiss()
+    {
+        if(punchMiss != null)
+        {
+            AudioSource.PlayClipAtPoint(punchMiss, Camera.main.transform.position);
+        }
+        
     }
 }
