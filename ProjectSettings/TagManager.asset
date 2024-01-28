@@ -18,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Particle
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1889917275
+    locked: 0
+  - name: Particle
+    uniqueID: 2826107167
     locked: 0
