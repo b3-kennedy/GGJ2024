@@ -456,7 +456,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b97d936e6d34bd4fb9ddca79ef968a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -992,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.58839
+      value: -3.05
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2841,7 +2841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.58839
+      value: -2.22
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2865,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.06
+      value: -4.37
       objectReference: {fileID: 0}
     - target: {fileID: 2849302131305549205, guid: 886008cce63454346b65906cccd612f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2894,6 +2894,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2872643021342810191, guid: 886008cce63454346b65906cccd612f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7907389}
+    - targetCorrespondingSourceObject: {fileID: 2872643021342810191, guid: 886008cce63454346b65906cccd612f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 886008cce63454346b65906cccd612f7, type: 3}
 --- !u!1001 &7878199230639429205
 PrefabInstance:
