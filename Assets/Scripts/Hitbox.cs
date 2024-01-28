@@ -14,8 +14,13 @@ public class Hitbox : MonoBehaviour
     {
         if (other.CompareTag(tagToCompare))
         {
+            player.GetComponent<CharacterAudio>().PunchHit();
             Vector2 dir = (other.transform.GetComponent<Health>().hitDirectionBase.position - player.transform.position).normalized;
             other.GetComponent<Health>().TakeDamage(damage, dir, player.gameObject);
+        }
+        else
+        {
+            player.GetComponent<CharacterAudio>().PunchMiss();
         }
         //if (other.CompareTag("PowerUp"))
         //{

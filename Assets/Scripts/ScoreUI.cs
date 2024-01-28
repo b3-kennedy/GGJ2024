@@ -10,6 +10,9 @@ public class ScoreUI : MonoBehaviour
     public int player2Score;
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
+    public GameObject redWin;
+    public GameObject blueWin;
+    public GameObject yellowWin;
 
     // Start is called before the first frame update
     void Start()

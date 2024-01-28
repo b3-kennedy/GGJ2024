@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     bool airborn;
     public LayerMask mask;
+    public string colour;
 
     float acceleration;
 

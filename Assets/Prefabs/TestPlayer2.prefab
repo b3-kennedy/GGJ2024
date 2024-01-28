@@ -331,6 +331,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+  colour: Blue
   axisName: Player2Horizontal
   jumpKey: 105
   hitStun: 0
@@ -471,6 +472,8 @@ MonoBehaviour:
   jump: {fileID: 8300000, guid: b27cc91a6bbdec74f806663ca35f7f98, type: 3}
   parry: {fileID: 8300000, guid: c44fbcec9642a764c9a1f69a6a37b540, type: 3}
   shield: {fileID: 0}
+  punchHit: {fileID: 0}
+  punchMiss: {fileID: 0}
   source: {fileID: 5102201948759982422}
 --- !u!82 &5102201948759982422
 AudioSource:
