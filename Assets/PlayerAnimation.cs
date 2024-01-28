@@ -9,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     private string currentAnimState;
     private Rigidbody2D rb;
     private PlayerMovement pMove;
+    private KeyCode attackKey;
+    public bool isRedAttack;
 
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = transform.parent.gameObject.GetComponent<Rigidbody2D>();
         pMove = transform.parent.GetComponent<PlayerMovement>();
+        attackKey = transform.parent.GetComponent<Attack>().attackKey;
 
     }
 
@@ -28,6 +31,16 @@ public class PlayerAnimation : MonoBehaviour
         //if (Input.GetAxis("Horizontal") > 0) sprite.flipX = false;
         //else if (Input.GetAxis("Horizontal") < 0) sprite.flipX = true;
 
+        if (isRedAttack)
+        {
+            if (Input.GetKeyDown(attackKey))
+            {
+                ChangeAnimationState("Attack");
+            }
+        }
+
+
+        
         if (!pMove.grounded)
         {
             //Air

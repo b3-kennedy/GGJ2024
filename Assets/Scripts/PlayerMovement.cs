@@ -102,6 +102,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(jumpKey) && grounded)
+        {
+            Jump();
+        }
+
         CancelHitstun();
 
         if (!hitStun)
@@ -150,10 +155,7 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         //AirDrag();
 
-        if (Input.GetKeyDown(jumpKey) && grounded)
-        {
-            Jump();
-        }
+
     }
 
     private void FixedUpdate()

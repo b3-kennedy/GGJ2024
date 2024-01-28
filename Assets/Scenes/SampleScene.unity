@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToWin: 3
-  player1Prefab: {fileID: 3545365902861535953, guid: db0930f52a4363749846102742b476a9, type: 3}
+  player1Prefab: {fileID: 6239157193653349063, guid: 2ec22b51ddd934b45ae582e9f9d03d40, type: 3}
   player2Prefab: {fileID: 4157534436910462439, guid: 2a79e66a8fe67b544aa331936e1f99b5, type: 3}
   blockTimer1: {fileID: 7907388}
   blockTimer2: {fileID: 358055185}
@@ -2894,9 +2894,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2872643021342810191, guid: 886008cce63454346b65906cccd612f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7907389}
-    - targetCorrespondingSourceObject: {fileID: 2872643021342810191, guid: 886008cce63454346b65906cccd612f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 886008cce63454346b65906cccd612f7, type: 3}
 --- !u!1001 &7878199230639429205
 PrefabInstance:
